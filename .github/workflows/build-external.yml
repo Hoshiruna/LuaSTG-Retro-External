@@ -1,0 +1,65 @@
+name: Build LuaSTG Retro external packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      dependency_group:
+        description: Dependency group to package
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          - core
+          - lua
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build-external.yml
+      - cmake/**
+      - CMakeLists.txt
+      - CMakePresets.json
+      - "**/CMakeLists.txt"
+      - "**/*.c"
+      - "**/*.cpp"
+      - "**/*.h"
+      - "**/*.hpp"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: x86
+            generator_arch: Win32
+          - name: amd64
+            generator_arch: x64
+
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v4
+
+      - name: Configure
+        shell: pwsh
+        run: >-
+          cmake -S . -B build/${{ matrix.name }}
+          -A ${{ matrix.generator_arch }}
+          -DLSTGEXT_BUILD=${{ inputs.dependency_group || 'all' }}
+          -DCPM_SOURCE_CACHE=${{ github.workspace }}/build/packages
+
+      - name: Build and package
+        run: cmake --build build/${{ matrix.name }} --config Release --target zip-install
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: luastg-retro-external-${{ matrix.name }}
+          path: build/${{ matrix.name }}/luastg-retro-external-*.zip
+          if-no-files-found: error
+          retention-days: 30
