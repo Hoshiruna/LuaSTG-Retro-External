@@ -107,6 +107,21 @@ if(LSTGEXT_BUILD_CORE)
     set_target_properties(discord-rpc PROPERTIES FOLDER external)
     lstgext_register_target(discord-rpc)
 
+    # miniaudio single-header audio library
+    lstgext_resolve_source(MINIAUDIO_SOURCE lstgext_miniaudio
+        miniaudio miniaudio.h
+        https://github.com/mackron/miniaudio.git
+        0.11.25
+    )
+    add_library(miniaudio INTERFACE)
+    target_include_directories(miniaudio INTERFACE
+        "$<BUILD_INTERFACE:${MINIAUDIO_SOURCE}>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/miniaudio>"
+    )
+    target_sources(miniaudio INTERFACE ${MINIAUDIO_SOURCE}/miniaudio.h)
+    set_target_properties(miniaudio PROPERTIES FOLDER external)
+    lstgext_register_target(miniaudio)
+
     # Tracy profiler and LuaSTG's public Tracy wrapper target.
     lstgext_resolve_source(TRACY_SOURCE lstgext_tracy
         tracy public/TracyClient.cpp

@@ -6,7 +6,8 @@ Retro independently from the engine.
 ## Dependency groups
 
 - `all` builds every managed dependency.
-- `core` builds beautiful-win32-api, xmath, QOI, Discord RPC, and Tracy.
+- `core` builds beautiful-win32-api, xmath, QOI, Discord RPC, miniaudio, and
+  Tracy.
 - `lua` builds LuaJIT, Lua filesystem, Lua CJSON, LuaSQL/SQLite, and the Steam
   binding.
 

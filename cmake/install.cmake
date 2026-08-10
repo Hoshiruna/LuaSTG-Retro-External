@@ -28,6 +28,9 @@ if(LSTGEXT_BUILD_CORE)
         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/discord-rpc"
         FILES_MATCHING PATTERN "*.h"
     )
+    install(FILES "${MINIAUDIO_SOURCE}/miniaudio.h"
+        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/miniaudio"
+    )
     install(DIRECTORY "${TRACY_SOURCE}/public/"
         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/tracy"
         FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
@@ -49,6 +52,10 @@ if(LSTGEXT_BUILD_CORE)
     )
     install(FILES "${DISCORD_RPC_SOURCE}/LICENSE"
         DESTINATION share/luastg-retro-external/licenses/discord-rpc
+        OPTIONAL
+    )
+    install(FILES "${MINIAUDIO_SOURCE}/LICENSE"
+        DESTINATION share/luastg-retro-external/licenses/miniaudio
         OPTIONAL
     )
     install(FILES "${TRACY_SOURCE}/LICENSE"

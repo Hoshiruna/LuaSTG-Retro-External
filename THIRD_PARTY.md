@@ -13,6 +13,7 @@ the license files installed from those sources where applicable.
 | LuaJIT | `fff48de34357e8e86197a45f5b4bc2b1b28cce53` | [MIT and bundled notices](https://github.com/Legacy-LuaSTG-Engine/LuaSTG-Sub-LuaJIT/blob/fff48de34357e8e86197a45f5b4bc2b1b28cce53/COPYRIGHT) |
 | LuaSQL | 2.8.1 | [Upstream project](https://github.com/lunarmodules/luasql/tree/2.8.1) |
 | SQLite amalgamation | copied with LuaSTG Retro | [Public domain](https://www.sqlite.org/copyright.html) |
+| miniaudio | 0.11.25 | [Public domain or MIT-0](https://github.com/mackron/miniaudio/blob/0.11.25/LICENSE) |
 | Tracy | 0.14.0 | [BSD-3-Clause](https://github.com/wolfpld/tracy/blob/v0.14.0/LICENSE) |
 | xmath | `7f594caeaff8d14c8032bb246c5d435e0d40c65d` | [MIT](https://github.com/Legacy-LuaSTG-Engine/lstgx_Math/blob/7f594caeaff8d14c8032bb246c5d435e0d40c65d/LICENSE) |
 
