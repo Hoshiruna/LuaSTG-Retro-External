@@ -32,7 +32,7 @@ if(LSTGEXT_BUILD_CORE)
     lstgext_resolve_source(XMATH_SOURCE lstgext_xmath
         xmath XMath.h
         https://github.com/Legacy-LuaSTG-Engine/lstgx_Math.git
-        d63939b5b5cd69ffeaa908f2ec38708a62ad3139
+        7f594caeaff8d14c8032bb246c5d435e0d40c65d
     )
     add_library(xmath STATIC)
     luastg_target_common_options(xmath)
@@ -74,7 +74,7 @@ if(LSTGEXT_BUILD_CORE)
     lstgext_resolve_source(QOI_SOURCE lstgext_qoi
         image.qoi qoi.h
         https://github.com/phoboslab/qoi.git
-        019020993ce33bdf56c876004e8b27139a0d011f
+        97bacc86a9c4abf5a2d452102dc26546c4c670b9
     )
     add_library(libqoi STATIC)
     luastg_target_common_options(libqoi)
@@ -111,7 +111,7 @@ if(LSTGEXT_BUILD_CORE)
     lstgext_resolve_source(TRACY_SOURCE lstgext_tracy
         tracy public/TracyClient.cpp
         https://github.com/wolfpld/tracy.git
-        v0.13.1
+        v0.14.0
     )
     add_library(tracy STATIC)
     luastg_target_common_options(tracy)
@@ -166,7 +166,7 @@ if(LSTGEXT_BUILD_LUA)
     lstgext_resolve_source(LUA_CJSON_SOURCE lstgext_lua_cjson
         lua-cjson lua_cjson.c
         https://github.com/openresty/lua-cjson.git
-        91ca29db9a4a4fd0eedaebcd5d5f3ba2ace5ae63
+        5ce46a80b10ef9d380a45c9e6cff9ecffbe71ebb
     )
     add_library(lua_cjson STATIC)
     luastg_target_common_options(lua_cjson)
